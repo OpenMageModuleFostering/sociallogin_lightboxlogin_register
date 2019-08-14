@@ -1,0 +1,174 @@
+
+/**
+* Rootinfo
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* However,* Rootinfo *guarantee functional accuracy of
+* specific extension behavior. Additionally we take no responsibility
+* for any possible issue(s) resulting from extension usage.
+* We reserve the full right not to provide any kind of support for our free extensions.
+* Thank you for your understanding.
+* @category   Rootinfo
+* @package    Rootinfo_SocialConnect
+* @author     Shekhar <shekhar@rootinfosol.com>
+* @copyright  Copyright (c) 2014-2015 (http://rootinfosol.com/)
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+*/
+
+
+#header-account { position:relative; }
+
+.rootinfo-window-outside { position:relative; }
+.rootinfo-window-outside .close { cursor:pointer; text-align:center; width: 40px;
+    float:right; display: block; color: #636363; text-decoration:none;
+    font-weight:normal; font-size:30px; position:absolute;  top:-13px;
+    right:-10px;
+}
+
+
+/******** Responsive Ajax & Register login Using Light box *****************/
+    
+@media only screen and (max-width: 1280px) {
+    
+.rootinfo-register-window .rootinfo-window-box .input-fly {  
+    padding: 1px 0px !important;
+}
+}
+
+
+@media only screen and (max-width: 1024px) {
+    
+   #header-account{
+       top:10%!important;
+       left: 24%;
+       width: 53%;
+       position: fixed;
+   } 
+    
+}
+
+
+
+
+@media only screen and (min-width: 771px) {
+    #header-account {
+        width:350px !important;
+    }
+    .rootinfo-register-window,
+    .rootinfo-login-window { display:none; width:350px; z-index:9998; padding:0; }
+    .rootinfo-window-outside { margin:20px; }
+    .rootinfo-window-box .input-fly input[type="text"],
+    .rootinfo-window-box .input-fly input[type="password"] {
+        width:306px;
+    }
+    .rootinfo-forgot-password a { text-align:right !important; }
+    .rootinfoajax-switch-window { text-align:center; padding:5px; display:inline; }
+}
+/******************************************************************************/
+
+/* Tablet *********************************************************************/
+@media only screen and (max-width: 771px) {
+    .rootinfo-register-window,
+    .rootinfo-login-window {
+        width:400px; padding:10px 30px;
+    }
+    .rootinfo-forgot-password a { text-align:right !important; }
+    .rootinfoajax-switch-window { text-align:center; padding:5px; display:inline; }
+}
+@media only screen and (max-width: 670px) {
+    .rootinfo-register-window,
+    .rootinfo-login-window {
+        width:400px; padding:10px 30px;
+    }
+    .rootinfoajax-switch-window { text-align:center; display:block; padding:0; }
+    .rootinfo-forgot-password a { text-align:center !important; }
+}
+/******************************************************************************/
+
+/* Mobile *********************************************************************/
+@media only screen and (max-width: 480px) {
+    
+    #header-account {
+        position: absolute;
+        width: 275px;
+        left: 6%;
+    }
+    .recaptchatable .recaptcha_image_cell center img {width:240px;}
+    .rootinfo-register-window #recaptcha_image{width: 252px!important;}
+    .rootinfo-register-window #recaptcha_table {
+    width: 254px !important;
+    }
+    
+   #termsckb-wrap {display:none;}
+    
+    .rootinfo-register-window,
+    .rootinfo-login-window {
+        width:auto; padding:15px;
+    }
+    .rootinfoajax-switch-window { text-align:center; display:block; padding:0; }
+    .rootinfo-window-box .input-fly input[type="text"],
+    .rootinfo-window-box .input-fly input[type="password"] {
+        width:100%;
+    }
+    .rootinfo-login-window .rootinfo-socialconnect-login-upper{display:none;}
+    .rootinfo-login-window .rootinfo-ajaxlogin-error{font-size: 11px;line-height: 8.5px;}
+}
+/******************************************************************************/
+
+.rootinfo-ajaxlogin-loader {
+    display:none; position:absolute; top:50%; left:50%; margin-left:-20px;
+    margin-top:-15px; height:31px; width:40px; z-index:9999;
+    background: url('../images/loader.gif') no-repeat center center;
+}
+.rootinfo-window-title h3 { display:inline; margin:0; color:#3399cc; }
+.rootinfoajax-switch-window {
+    cursor:pointer; color:#3399cc; line-height:33px;
+}
+.rootinfo-window-box { margin-top:15px; }
+.rootinfo-window-subtitle p {
+    margin:20px 0 5px 0; width:100%; font-size:14px; font-weight:bold; color:#888;
+    border-bottom:1px solid #3399cc;
+}
+.rootinfo-window-box .input-fly { padding:5px 0; width:100% }
+.rootinfo-window-box .input-fly label { font-size:14px; line-height:26px; }
+.rootinfo-window-box .input-fly input[type="text"],
+.rootinfo-window-box .input-fly input[type="password"] {
+    font-size:15px; padding:3px; height:40px;
+}
+.rootinfo-ajaxlogin-error { color:#eb340a; }
+.err-licence {  }
+.err-newsletter {  }
+.rootinfo-window-box label a { display:inline !important; padding:0 !important; }
+.rootinfo-window-box .input-fly-checkbox input { margin:7px 7px 0 0; }
+.rootinfo-window-box .input-fly-checkbox label { font-size:12px; width:auto; }
+.rootinfo-window-box .input-fly .rootinfo-ajaxlogin-error { }
+.rootinfo-window-box .input-fly-checkbox .rootinfo-ajaxlogin-error { text-align:left; }
+.rootinfo-window-box .box-contents {  }
+.rootinfo-window-box .box-contents-button { width:100%; margin-top:20px; }
+.rootinfo-window-box .box-contents-button button { }
+.rootinfo-window-box .rootinfo-forgot-password { margin-top:10px; }
+
+
+#dullDiv {
+    background: none repeat scroll 0 0 #000000;
+    border: 0.0625em solid #114EAB;
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}

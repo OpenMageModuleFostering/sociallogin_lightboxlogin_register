@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/sociallogin_lightboxlogin_register",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Mainly its is used for login popup as light box and register page with social login.create api key for social login form developer of social connect.the setting will be availble in system->configuration->rootinfo_ajaxlogin.",
+    "authors": [
+    {
+        "name": "Shekhar Juneja",
+        "email": "shekhar@rootinfosol.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

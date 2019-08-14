@@ -1,0 +1,237 @@
+<?php
+/**
+* Rootinfo
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* However,* Rootinfo *guarantee functional accuracy of
+* specific extension behavior. Additionally we take no responsibility
+* for any possible issue(s) resulting from extension usage.
+* We reserve the full right not to provide any kind of support for our free extensions.
+* Thank you for your understanding.
+* @category   Rootinfo
+* @package    Rootinfo_SocialConnect
+* @author     Shekhar <shekhar@rootinfosol.com>
+* @copyright  Copyright (c) 2014-2015 (http://rootinfosol.com/)
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+*/
+
+?>
+
+<?php // If user is not logged in ?>
+<?php if (Mage::helper('customer')->isLoggedIn() != true) : ?>
+
+    <?php // Loader animation ?>
+    <div class="rootinfo-ajaxlogin-loader">
+    </div>
+
+    <?php // Login window ?>
+    <div class="rootinfo-login-window">
+        <div class="rootinfo-window-outside">
+            <span class="close">×</span>
+
+            <div class="rootinfo-window-inside">
+                <div class="rootinfo-window-title">
+                    <h3>
+                        <?php echo $this->__('Login') ?>
+                    </h3>
+                </div>
+                
+                <div class="rootinfo-window-box first">
+                    <div class="rootinfo-window-content">
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-email"><?php echo $this->__('E-mail address') ?> <span>*</span></label>
+                            <input type="text" placeholder="<?php echo $this->__('E-mail address') ?>" id="rootinfo-email" name="rootinfo-email" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-email err-noemail err-wrongemail err-wronglogin"></div>
+                        </div>
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-password"><?php echo $this->__('Password') ?> <span>*</span></label>
+                            <input type="password" placeholder="<?php echo $this->__('Password') ?>" id="rootinfo-password" name="rootinfo-password" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-password err-novalidpassword err-nopassword err-longpassword"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rootinfo-window-box last">
+                    <div class="rootinfo-window-content box-contents box-contents-button rootinfo-showhideme">
+                        <span class="rootinfo-forgot-password">
+                            <a href="<?php echo Mage::getBaseUrl() ?>customer/account/forgotpassword/"><?php echo $this->__('Forgot Password') ?></a>
+                        </span>
+                        <button type="button" class="button btn-proceed-checkout btn-checkout rootinfo-ajaxlogin-button">
+                            <span>
+                                <span>
+                                    <?php echo $this->__('Login') ?>
+                                </span>
+                            </span>
+                        </button>
+                        <p id="y-to-register" class="rootinfoajax-switch-window">
+                            <?php echo $this->__('or registration') ?>
+                        </p>
+                        
+               <!--  call social login      --->
+<?php $genabled = Mage::getStoreConfig("rootinfoajaxlogin/rootinfo_socialconnect_google/enabled");
+
+ $fenabled = Mage::getStoreConfig("rootinfoajaxlogin/rootinfo_socialconnect_facebook/enabled");
+ $tenabled = Mage::getStoreConfig("rootinfoajaxlogin/rootinfo_socialconnect_twitter/enabled");
+  if($genabled==1 && $tenabled==1 && $fenabled==1){
+?>				
+		<?php echo Mage::app()->getLayout()->createBlock('rootinfo_socialconnect/login')->setTemplate('rootinfo/socialconnect/login.phtml')->toHtml(); ?>
+						
+	       <!--  End social login      --->
+               <?php } ?>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <?php // Register window ?>
+    <div class="rootinfo-register-window">
+        <div class="rootinfo-window-outside">
+            <span class="close">×</span>
+
+            <div class="rootinfo-window-inside">
+                <div class="rootinfo-window-title">
+                    <h3>
+                        <?php echo $this->__('Registration') ?>
+                    </h3>
+                </div>
+
+                <div class="rootinfo-window-box first">
+                   
+                    <div class="rootinfo-window-content">
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-firstname"><?php echo $this->__('First Name') ?> <span>*</span></label>
+                            <input type="text" placeholder="<?php echo $this->__('First Name') ?>" id="rootinfo-firstname" name="rootinfo-firstname" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-firstname err-nofirstname err-novalidfirstname"></div>
+                        </div>
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-lastname"><?php echo $this->__('Last Name') ?> <span>*</span></label>
+                            <input type="text" placeholder="<?php echo $this->__('Last Name') ?>" id="rootinfo-lastname" name="rootinfo-lastname" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-lastname err-nolastname err-novalidlastname"></div>
+                        </div>
+                        <div class="valid-input valid-input-checkbox rootinfo-showhideme">
+                            <input type="checkbox" id="rootinfo-newsletter" name="rootinfo-newsletter" value="ok" />
+                            <label for="rootinfo-newsletter"><?php echo $this->__('Subscribe to Newsletter') ?></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rootinfo-window-box second">
+                    
+                    <div class="rootinfo-window-content">
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-email"><?php echo $this->__('E-mail address') ?> <span>*</span></label>
+                            <input type="text" placeholder="<?php echo $this->__('E-mail address') ?>" id="rootinfo-email" name="rootinfo-email" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-email err-noemail err-wrongemail err-emailisexist"></div>
+                        </div>
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-password"><?php echo $this->__('Password') ?> <span>*</span></label>
+                            <input type="password" placeholder="<?php echo $this->__('Password') ?>" id="rootinfo-password" name="rootinfo-password" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-password err-novalidpassword err-nopassword err-shortpassword err-longpassword"></div>
+                        </div>
+                        <div class="valid-input rootinfo-showhideme">
+                            <label for="rootinfo-passwordsecond"><?php echo $this->__('Password confirmation') ?> <span>*</span></label>
+                            <input type="password" placeholder="<?php echo $this->__('Password confirmation') ?>" id="rootinfo-passwordsecond" name="rootinfo-passwordsecond" value="" />
+                            <div class="rootinfo-ajaxlogin-error err-passwordsecond err-nopasswordsecond err-notsamepasswords"></div>
+                        </div>
+                        <div class="valid-input valid-input-checkbox rootinfo-showhideme">
+                            <input type="checkbox" id="rootinfo-licence" name="rootinfo-licence" value="ok" />
+                            <label for="rootinfo-licence"><?php echo $this->__('I accept the Terms and Coditions.') ?> </label>
+                            <div class="rootinfo-ajaxlogin-error err-nolicence"></div>
+                        </div>
+                        
+                        
+                <!-- Google ReCaptcha     -->                         
+                      <?php  $publickey = Mage::getStoreConfig("rootinfoajaxlogin/googlerecaptcha/public_key");
+                   if($publickey!=null){?>
+
+           
+                    <div id="captcha-wrap">
+                        <div id="termsckb-wrap">
+                            <p class="bold">Type in the words below (separated by a space):</p>
+                        </div>
+                        <?php
+                       
+                        echo Mage::helper("rootinfo_socialconnect")->recaptcha_get_html($publickey); 
+
+                        ?>
+                       <div id="mageerr-recaptcha" style="color:#eb340a;"></div>
+
+                    </div> 
+                <?php } ?>
+    
+                        
+                <!-- End Google ReCaptcha -->
+       
+                    </div>
+                </div>
+
+                <div class="rootinfo-window-box last">
+                    <div class="rootinfo-window-content box-contents rootinfo-showhideme">
+                        <button type="button" class="button btn-proceed-checkout btn-checkout rootinfo-ajaxlogin-button">
+                            <span>
+                                <span>
+                                    <?php echo $this->__('Register') ?>
+                                </span>
+                            </span>
+                        </button>
+                        <p id="y-to-login" class="rootinfoajax-switch-window">
+                            <?php echo $this->__('or login') ?>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <?php // Error messages ?>
+    <div class="rootinfo_ajaxlogin-temp-error" style="display:none !important;">
+        <div class="rootvalid-nofirstname"><?php echo $this->__('First name is required!') ?></div>
+        <div class="rootvalid-nolastname"><?php echo $this->__('Last name is required!') ?></div>
+        <div class="rootvalid-novalidfirstname"><?php echo $this->__('First name is not valid!') ?></div>
+        <div class="rootvalid-novalidlastname"><?php echo $this->__('Last name is not valid!') ?></div>
+
+        <div class="rootvalid-wrongemail"><?php echo $this->__('This is not an email address!') ?></div>
+        <div class="rootvalid-noemail"><?php echo $this->__('Email address is required!') ?></div>
+        <div class="rootvalid-emailisexist"><?php echo $this->__('This email is already registered!') ?></div>
+
+        <div class="rootvalid-nopassword"><?php echo $this->__('Password is required!') ?></div>
+        <div class="rootvalid-novalidpassword"><?php echo $this->__('Enter a valid password!') ?></div>
+        <div class="rootvalid-shortpassword"><?php echo $this->__('Please enter 6 or more characters!') ?></div>
+        <div class="rootvalid-longpassword"><?php echo $this->__('Please enter 16 or less characters!') ?></div>
+        <div class="rootvalid-notsamepasswords"><?php echo $this->__('Passwords are not same!') ?></div>
+        <div class="rootvalid-nolicence"><?php echo $this->__('Terms and Conditions are required!') ?></div>
+        
+        <div class="rootvalid-wronglogin"><?php echo $this->__('Email or Password is wrong!') ?></div>
+    </div>
+
+    <?php // jQuery plugin for ajax call ?>
+    <script type="text/javascript">
+        //<![CDATA[
+            jQuery(document).ready(function(){
+                jQuery().rootinfoAjaxLogin({
+                    redirection : '<?php echo $this->isRedirectToProfile() ?>',
+                    profileUrl : '<?php echo Mage::getBaseUrl() ?>customer/account/',
+                    autoShowUp : '<?php echo $autoShowUp = (isset($_GET['lightboxlogin'])) ? 'yes' : 'no' ?>',
+                    controllerUrl : '<?php echo $this->getUrl('rootinfo_socialconnect/ajax/index') ?>'
+                });
+            });
+        //]]>
+    </script>
+
+<?php endif ?>

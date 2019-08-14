@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+/**
+* Rootinfo
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* However,* Rootinfo *guarantee functional accuracy of
+* specific extension behavior. Additionally we take no responsibility
+* for any possible issue(s) resulting from extension usage.
+* We reserve the full right not to provide any kind of support for our free extensions.
+* Thank you for your understanding.
+* @category   Rootinfo
+* @package    Rootinfo_socialconnect
+* @author     Shekhar <shekhar@rootinfosol.com>
+* @copyright  Copyright (c) 2014-2015 (http://rootinfosol.com/)
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+*/
+
+
+-->
+
+<layout>
+    <default>
+
+
+
+  <reference name="head">
+            
+            <action ifconfig="rootinfoajaxlogin/settings/power" method="addJs">
+                <script>lib/jquery/jquery-1.10.2.min.js</script>
+            </action>
+            
+            <action ifconfig="rootinfoajaxlogin/settings/power" method="addJs">
+                <script>lib/jquery/noconflict.js</script>
+            </action>
+            
+            <action ifconfig="rootinfoajaxlogin/settings/power" method="addCss">
+                <stylesheet>rootinfo_socialconnect/css/ajaxlogin.css</stylesheet>
+            </action>
+            <action ifconfig="rootinfoajaxlogin/settings/jquery" method="addItem">
+                <type>skin_js</type>
+                <script>rootinfo_socialconnect/js/jquery-1-11-1.js</script>
+            </action>
+            <action ifconfig="rootinfoajaxlogin/settings/jqueryui" method="addItem">
+                <type>skin_js</type>
+                <script>rootinfo_socialconnect/js/jquery-ui-1-10-4.js</script>
+            </action>
+            <action ifconfig="rootinfoajaxlogin/settings/power" method="addItem">
+                <type>skin_js</type>
+                <script>rootinfo_socialconnect/js/ajaxlogin.js</script>
+            </action>
+
+
+      <action method="addItem">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/styles.css</name>
+            </action>
+            <action method="addItem"
+                ifconfig="rootinfoajaxlogin/rootinfo_socialconnect_google/enabled">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/googlebutton.css</name>
+            </action>
+            <action method="addItem"
+                ifconfig="rootinfoajaxlogin/rootinfo_socialconnect_facebook/enabled">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/facebookbutton.css</name>
+            </action>
+            <action method="addItem"
+                ifconfig="rootinfoajaxlogin/rootinfo_socialconnect_twitter/enabled">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/twitterbutton.css</name>
+            </action>
+
+        </reference>
+        
+       
+        <reference name="header">
+            <block type="page/header" name="header">
+                <action method="setTemplate"><template>rootinfo/socialconnect/header.phtml</template></action>
+            </block>
+        </reference>
+        
+        <reference name="content">
+            <block ifconfig="rootinfoajaxlogin/settings/power"
+                   type="rootinfo_socialconnect/ajaxlogin"
+                   name="rootinfoajaxlogin"
+                   as="rootinfoajaxlogin">
+                <action ifconfig="rootinfoajaxlogin/settings/power"
+                        method="setTemplate">
+                    <template>rootinfo/socialconnect/ajaxlogin.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+        
+    </default>
+
+   
+    <rootinfo_socialconnect_account_google translate="label">
+        <label>Customer My Account Google Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="rootinfo_socialconnect">
+                <title>Google Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="rootinfo_socialconnect/google_account" name="rootinfo_socialconnect_google_account">
+                <block type="rootinfo_socialconnect/google_button" name="rootinfo_socialconnect_account_google_button" />
+            </block>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="rootinfo_socialconnect">
+                <path>socialconnect/account/google</path>
+            </action>
+        </reference>
+    </rootinfo_socialconnect_account_google>
+
+   <rootinfo_socialconnect_account_facebook translate="label">
+        <label>Customer My Account Facebook Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="rootinfo_socialconnect">
+                <title>Facebook Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="rootinfo_socialconnect/facebook_account" name="rootinfo_socialconnect_facebook_account">
+                <block type="rootinfo_socialconnect/facebook_button" name="rootinfo_socialconnect_account_facebook_button" />
+            </block>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="rootinfo_socialconnect">
+                <path>socialconnect/account/facebook</path>
+            </action>
+        </reference>
+    </rootinfo_socialconnect_account_facebook>
+
+   <rootinfo_socialconnect_account_twitter translate="label">
+        <label>Customer My Account Twitter Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="rootinfo_socialconnect">
+                <title>Twitter Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>rootinfo_socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="rootinfo_socialconnect/twitter_account" name="rootinfo_socialconnect_twitter_account">
+                <block type="rootinfo_socialconnect/twitter_button" name="rootinfo_socialconnect_account_twitter_button" />
+            </block>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="rootinfo_socialconnect">
+                <path>socialconnect/account/twitter</path>
+            </action>
+        </reference>
+    </rootinfo_socialconnect_account_twitter>
+
+   
+</layout>

@@ -1,0 +1,81 @@
+<?php
+/**
+* Rootinfo
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* However,* Rootinfo *guarantee functional accuracy of
+* specific extension behavior. Additionally we take no responsibility
+* for any possible issue(s) resulting from extension usage.
+* We reserve the full right not to provide any kind of support for our free extensions.
+* Thank you for your understanding.
+* @category   Rootinfo
+* @package    Rootinfo_Socialconnect
+* @author     Shekhar <shekhar@rootinfosol.com>
+* @copyright  Copyright (c) 2014-2015 (http://rootinfosol.com/)
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+*/
+
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+
+?>
+<div class="header-container">
+    <div class="header">
+       
+             
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+        <div class="quick-access">
+            <?php echo $this->getChildHtml('topSearch') ?>
+            <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
+           
+            <?php echo $this->getChildHtml('store_language') ?>
+             <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+        <?php echo $this->getChildHtml('topContainer'); ?>
+        
+        <!-- Login Ajax Popup -->
+     <div class="page-header-container">     
+        <div class="skip-links">            
+
+            <div class="account-cart-wrapper">
+                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
+                    <span class="icon"></span>
+                    <span class="label"><?php //echo $this->__('Ajax Login'); ?></span>
+                </a>            
+
+                
+            </div>
+
+        </div>
+        
+        
+        <div id="dullDiv">   </div>
+       
+        <center>
+        <div id="header-account" class="skip-content">
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+        </center>
+         <!-- End of Login Ajax Popup -->
+        
+    </div>
+          
+    </header>
+</div>
+<?php echo $this->getChildHtml('topMenu') ?>
