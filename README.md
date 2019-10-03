@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Mainly its is used for login popup as light box and register page with social login.create api key for social login form developer of social connect.the setting will be availble in system->configuration->rootinfo_ajaxlogin.
